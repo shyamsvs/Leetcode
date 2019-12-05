@@ -1,0 +1,23 @@
+class Solution {
+    public int romanToInt(String s) {
+           int[] romanNumeralValueMap = new int[89];
+        romanNumeralValueMap['I']  = 1;
+        romanNumeralValueMap['V'] = 5;
+        romanNumeralValueMap['X'] = 10;
+        romanNumeralValueMap['L'] = 50;
+        romanNumeralValueMap['C'] = 100;
+        romanNumeralValueMap['D'] = 500;
+        romanNumeralValueMap['M'] = 1000;
+        
+        int value = romanNumeralValueMap[s.charAt(s.length()-1)];
+        for(int i = s.length() - 1; i !=0; i--){
+           if( romanNumeralValueMap[s.charAt(i)] <= romanNumeralValueMap[s.charAt(i-1)]){
+              value+=romanNumeralValueMap[s.charAt(i-1)];
+           }
+           else{
+              value-= romanNumeralValueMap[s.charAt(i-1)];
+           }
+        }
+        return value;
+    }
+}
