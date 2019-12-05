@@ -1,0 +1,34 @@
+char * reverseVowels(char * a)
+{
+    char temp;
+    int start=0;
+    int end = strlen(a) - 1;
+    int move1=0;
+    int move2=0;
+    while(start<end)
+    {
+        if(!(a[start] == 'a' || a[start] == 'e' ||a[start] == 'i' ||a[start] == 'o' ||a[start] == 'u'
+             || a[start] == 'A' || a[start] == 'E' || a[start] == 'I' || a[start] == 'O' || a[start] == 'U'))
+        {
+            move1 = 1;
+            start++;
+        }
+        if(!(a[end] == 'a' || a[end] == 'e' || a[end] == 'i' || a[end] == 'o' || a[end] == 'u' || a[end] == 'A'|| a[end] == 'E'|| a[end] == 'I'|| a[end] == 'O'|| a[end] == 'U'  ))
+        {
+            move2 = 1;
+            end--;
+        }
+        if(move1 == 0 && move2 == 0)
+        {
+            temp = a[start];
+            a[start] = a[end];
+            a[end] = temp;
+            start++;
+            end--;
+            
+        }
+		move1=0;
+            move2=0;
+    }
+	return a;
+}
