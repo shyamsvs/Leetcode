@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void swap(int a, int b, vector<int> &nums){
+		int temp;
+		temp = nums[a];
+		nums[a] = nums[b];
+		nums[b] = temp;
+	}
+
+    void sortColors(vector<int>& nums) {
+        int left = 0;
+		int right = nums.size() - 1;
+		int mid = 0;
+		while(mid <= right){
+			if(nums[mid] == 1){
+				mid++;
+			}
+			else if(nums[mid] == 0){
+				swap(left, mid, nums);
+				left++;
+				mid++;
+			}
+			else if(nums[mid] == 2){
+				swap(mid, right, nums);
+				right--;
+			}
+		}
+		for(auto ele : nums){
+			cout << ele ;
+		}
+    }
+};
