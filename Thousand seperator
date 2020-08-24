@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string thousandSeparator(int n) {
+            stringstream s;
+			s << n;
+			string num;
+			char p = '.';
+			s >> num;
+			int l = num.length();
+			int toput = l % 3;
+			bool st = false;
+			string ans;
+			int count = 0;
+			for(auto i : num){
+				if(count == toput && st){
+					ans.push_back(p);
+				}
+				ans.push_back(i);
+				count++;
+				if(count == 3){
+					count = 0;
+				}
+				st = true;
+			}
+			return ans;
+    }
+};
