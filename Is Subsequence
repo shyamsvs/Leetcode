@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int slen = s.length();
+        int tlen = t.length();
+        int sleft = 0;
+        int tleft = 0;
+        while((slen != sleft ) && (tlen != tleft)){
+            if(s[sleft] == t[tleft]){
+                sleft++;
+            }
+            tleft++;
+        }
+        return slen == sleft ? true : false;
+    }
+};
